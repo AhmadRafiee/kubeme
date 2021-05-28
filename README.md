@@ -18,7 +18,7 @@ The tools and sample needed to learn the Kubernetes
   - [kubernetes ingress treeafik](scenario/ingress-traefik)
   - [kubernetes and ceph-csi ](storage/ceph-csi.md)
   - [kubernetes and bb-csi](storage/block-bridge-csi.md)
-  - [docker elk scenario](scenario/docker/elk-single/)
+  - [docker elk scenario](scenario/docker/elk-single-node/)
 
 
 # in-progress

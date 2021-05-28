@@ -1,0 +1,17 @@
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1beta1
+metadata:
+  name: dashboard
+  namespace: kubernetes-dashboard
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+spec:
+  rules:
+  - host: gui.monlog.ir
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: kubernetes-dashboard
+          servicePort: 443

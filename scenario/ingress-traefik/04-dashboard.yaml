@@ -1,0 +1,22 @@
+---
+kind: Ingress
+apiVersion: networking.k8s.io/v1beta1
+metadata:
+  name: traefik
+  namespace: kube-system
+  annotations:
+    traefik.ingress.kubernetes.io/router.entrypoints: web, websecure
+    traefik.ingress.kubernetes.io/router.middlewares: traefik-basic-auth@kubernetescrd
+    traefik.ingress.kubernetes.io/router.tls: true
+    traefik.ingress.kubernetes.io/router.tls.certresolver: letsencrypt
+
+
+spec:
+  rules:
+  - host: tra.monlog.ir
+    http:
+      paths:
+      - path: /
+        backend:
+          serviceName: traefik
+          servicePort: 8100

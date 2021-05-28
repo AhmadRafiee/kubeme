@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+ name: myapp-pod
+spec:
+ containers:
+ - name: data-processor
+   image: data-processor
+ nodeSelector:
+  size: Large

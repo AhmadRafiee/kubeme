@@ -1,0 +1,14 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: ahmad-test-pod-7
+  namespace: default
+  labels:
+     app: myapp
+     type: front-end
+spec:
+  containers:
+  - name: nginx-container
+    image: docker.repos.balad.ir/ubuntu
+    stdin: true 
+    tty: true 

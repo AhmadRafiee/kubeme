@@ -1,9 +1,9 @@
 # -*- mode: ruby -*-
 # vi: set ft=ruby :
 
-IMAGE_1604 = "file://bento/builds/ubuntu-16.04.virtualbox.box"
-IMAGE_1804 = "file://bento/builds/ubuntu-18.04.virtualbox.box"
-IMAGE_2004 = "file://bento/builds/ubuntu-20.04.virtualbox.box"
+IMAGE_1604 = "file://../bento/builds/ubuntu-16.04.virtualbox.box"
+IMAGE_1804 = "file://../bento/builds/ubuntu-18.04.virtualbox.box"
+IMAGE_2004 = "file://../bento/builds/ubuntu-20.04.virtualbox.box"
 
 ENV['VAGRANT_NO_PARALLEL'] = 'yes'
 

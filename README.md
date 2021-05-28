@@ -7,7 +7,6 @@ The tools and sample needed to learn the Kubernetes
   - [kubectl tips](scenario/kubectl-tips.md)
   - [kubectl sample commands](scenario/kubectl-command-sample.md)
   - [kubernetes dns test](scenario/kubernetes-dns-test.md)
-  - [kubernetes multi-node installation](scenario/)
   - [kubernetes manifest](manifests/)
   - [kubernetes multi-node installation](multi-node/multi-node-installation.md)
   - [kubernetes multi-node update](multi-node/multi-node-update.md)
@@ -19,6 +18,7 @@ The tools and sample needed to learn the Kubernetes
   - [kubernetes ingress treeafik](scenario/ingress-traefik)
   - [kubernetes and ceph-csi ](storage/ceph-csi.md)
   - [kubernetes and bb-csi](storage/block-bridge-csi.md)
+  - [docker elk scenario](scenario/docker/elk-single/)
 
 
 # in-progress

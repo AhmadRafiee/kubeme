@@ -97,7 +97,19 @@ kubectl krew install deprecations
 kubectl deprecations --help
 ```
 
+### kubectl cmplation
 
+```bash
+apt-get install bash-completion
+
+# Enable kubectl autocompletion
+echo 'source <(kubectl completion bash)' >>~/.bashrc
+kubectl completion bash >/etc/bash_completion.d/kubect
+
+# If you have an alias for kubectl, you can extend shell completion to work with that alias:
+echo 'alias k=kubectl' >>~/.bashrc
+echo 'complete -F __start_kubectl k' >>~/.bashrc
+```
 
 # good alias
 ```bash

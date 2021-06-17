@@ -5,8 +5,8 @@
 ```bash
 docker run -d \
 --name demo \
--e MON_IP=172.10.10.113 \
--e CEPH_PUBLIC_NETWORK=172.10.10.0/24 \
+-e MON_IP=172.60.70.1 \
+-e CEPH_PUBLIC_NETWORK=172.60.70.0/24 \
 --net=host \
 -v /var/lib/ceph:/var/lib/ceph \
 -v /etc/ceph:/etc/ceph \
@@ -14,7 +14,7 @@ docker run -d \
 -e CEPH_DEMO_ACCESS_KEY=qqq \
 -e CEPH_DEMO_SECRET_KEY=qqq \
 -e CEPH_DEMO_BUCKET=qqq  \
-ceph/daemon \
+ceph/daemon:latest \
 demo
 ```
 
@@ -72,9 +72,9 @@ sudo ceph mon dump;
 ```bash
 cat <<EOF > ceph-csi-rbd-values.yaml
 csiConfig:
-  - clusterID: "04eef965-80d2-4800-9d95-bd6b1ebc2490"
+  - clusterID: "c2c6640c-9daf-4234-a67c-5de76d94a813"
     monitors:
-      - "172.10.10.113:3300"
+      - "172.60.70.1:3300"
 provisioner:
   name: provisioner
   replicaCount: 2
@@ -119,7 +119,7 @@ metadata:
 type: kubernetes.io/rbd
 data:
   userID: a3ViZUFkbWlu
-  userKey: QVFDNm9LdGdTenduTUJBQTJadUJNN0I3MUUyZG1pbmhoNUlDYXc9PQ==
+  userKey: QVFDRk9jZGc4d0xDRXhBQXJXQ1ZOeWJ6aTlETFA3aURhVUdPUHc9PQ==
 EOF
 ```
 
@@ -140,7 +140,7 @@ metadata:
     storageclass.kubernetes.io/is-default-class: "true"
 provisioner: rbd.csi.ceph.com
 parameters:
-   clusterID: 3802f937-15c5-475b-a311-9ece03ae63cc
+   clusterID: c2c6640c-9daf-4234-a67c-5de76d94a813
    pool: kubePool
    imageFeatures: layering
    csi.storage.k8s.io/provisioner-secret-name: ceph-admin
@@ -165,9 +165,8 @@ kubectl apply -f ceph-rbd-sc.yaml;
 
 ### install ceph-common on all nodes 
 ```bash
-apt update
-apt install ceph-common
-apt update ; apt install ceph-common -y
+sudo apt update
+sudo apt install -y ceph-common
 ```
 
 ### Let’s create a pod with pvc to mount the volume from the external ceph storage using ceph storage class.
@@ -203,7 +202,6 @@ spec:
   - name: volume
     persistentVolumeClaim:
       claimName: ceph-rbd-sc-pvc
-  nodeName: kind-worker2
 EOF
  
 kubectl apply -f pv-pod.yaml;

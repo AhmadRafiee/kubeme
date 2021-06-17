@@ -368,7 +368,7 @@ kind: ClusterConfiguration
 controlPlaneEndpoint: "vip.${domain_name}:6443"
 networking:
   serviceSubnet: "10.96.0.0/12"
-  podSubnet: "192.110.0.0/16"
+  podSubnet: "172.124.0.0/17"
 EOT
 cat /opt/kubeadm_config.yml
 
@@ -395,7 +395,6 @@ openssl x509 -text -noout -in /etc/kubernetes/pki/apiserver.crt
 
 echo "Deploy Calico network"
 kubectl create -f https://docs.projectcalico.org/v3.9/manifests/calico.yaml
-
 
 echo "Install etcdctl On Ubuntu 16.04/18.04 "
 etcd_version=v3.4.16

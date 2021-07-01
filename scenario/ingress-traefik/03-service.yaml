@@ -18,7 +18,6 @@ metadata:
   namespace: kube-system
 spec:
   externalIPs:
-  - '172.42.42.201'
   externalTrafficPolicy: Cluster
   ports:
   - name: web

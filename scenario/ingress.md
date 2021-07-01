@@ -1,27 +1,27 @@
 # How to install and use kubernetes ingress
 
 # Ingress-nginx
-## [Deploy ingress-nginx with helm](https://docs.nginx.com/nginx-ingress-controller/installation/installation-with-helm/)
+## [Deploy ingress-nginx](https://kubernetes.github.io/ingress-nginx/deploy/)
 
-## Getting the Chart Sources
-### Clone the Ingress controller repo:
+
+### Install ingress-nginx with this commands:
+
 ```bash
-git clone https://github.com/nginxinc/kubernetes-ingress/
+kubectl apply -f https://raw.githubusercontent.com/kubernetes/ingress-nginx/controller-v0.47.0/deploy/static/provider/cloud/deploy.yaml
 ```
-### Change your working directory to /deployments/helm-chart:
+
+## check pod and service 
 ```bash
-cd kubernetes-ingress/deployments/helm-chart
-git checkout v1.11.3
+kubectl get all -n ingress-nginx
 ```
-## Adding the Helm Repository
-### This step is required if you’re installing the chart via the helm repository.
-```bash
-helm repo add ingress-nginx https://kubernetes.github.io/ingress-nginx
-helm repo update
-helm pull ingress-nginx/ingress-nginx
-```
-## Installing via Helm Repository
+
+## Issue and Fix
+
+### [Issuse1:](https://github.com/kubernetes/ingress-nginx/issues/5583)
 ```bash 
-tar -xzvf ingress-nginx-3.33.0.tgz
-helm install ingress-nginx ./ingress-nginx
+Post https://ingress-nginx-controller-admission.ingress-nginx.svc:443/extensions/v1beta1/ingresses?timeout=30s: context deadline exceeded
+```
+### Fix1:
+```bash
+kubectl delete -A ValidatingWebhookConfiguration ingress-nginx-admission
 ```

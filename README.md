@@ -21,7 +21,7 @@ The tools and sample needed to learn the Kubernetes
   - [kubernetes and bb-csi](storage/block-bridge-csi.md)
   - [kubernetes weavescope deploy](scenario/weavescope.md)
   - [kubernetes roolout](scenario/rollout-test.md)
-  - [kubernetes roolout](scenario/deployment-strategy.md)
+  - [kubernetes deployment strtategy](scenario/deployment-strategy.md)
   - [docker elk scenario](scenario/docker/elk-single-node/)
   - [etcd backup | restore](scenario/back-restore-etcd.md)
   

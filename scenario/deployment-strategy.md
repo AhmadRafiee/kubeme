@@ -1,4 +1,4 @@
-# [Deployment Strategies](https://www.weave.works/blog/kubernetes-deployment-strategies)
+# [Deployment Strategies](https://blog.container-solutions.com/deployment-strategies)
 
 ## Rolling Deployment
 ```bash

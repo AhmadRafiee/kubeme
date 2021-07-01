@@ -51,6 +51,7 @@ kubectl scale deployment.v1.apps/nginx-deployment --replicas=10
 kubectl set resources deployment.v1.apps/nginx-deployment -c=nginx --limits=cpu=200m,memory=512Mi
 ```
 ‍- Get details of your Deployment:
-‍```bash
+
+```bash
 kubectl describe deployment nginx-deployment
 ```

@@ -72,7 +72,7 @@ sudo ceph mon dump;
 ```bash
 cat <<EOF > ceph-csi-rbd-values.yaml
 csiConfig:
-  - clusterID: "c2c6640c-9daf-4234-a67c-5de76d94a813"
+  - clusterID: "757d3b56-fa4c-475f-a04d-a966ce9519c4"
     monitors:
       - "172.60.70.1:3300"
 provisioner:
@@ -119,7 +119,7 @@ metadata:
 type: kubernetes.io/rbd
 data:
   userID: a3ViZUFkbWlu
-  userKey: QVFDRk9jZGc4d0xDRXhBQXJXQ1ZOeWJ6aTlETFA3aURhVUdPUHc9PQ==
+  userKey: QVFDNTM4cGdPUnBHTGhBQTJVYU1xWGhvN2U4WEZIeERtek5xMXc9PQ==
 EOF
 ```
 
@@ -140,7 +140,7 @@ metadata:
     storageclass.kubernetes.io/is-default-class: "true"
 provisioner: rbd.csi.ceph.com
 parameters:
-   clusterID: c2c6640c-9daf-4234-a67c-5de76d94a813
+   clusterID: 757d3b56-fa4c-475f-a04d-a966ce9519c4
    pool: kubePool
    imageFeatures: layering
    csi.storage.k8s.io/provisioner-secret-name: ceph-admin

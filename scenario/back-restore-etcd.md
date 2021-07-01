@@ -99,4 +99,10 @@ spec:
             hostPath:
               path: /opt/etcd-backup
               type: DirectoryOrCreate
-‍‍‍```
+```
+
+### run job from cronjob
+
+```bash
+kubectl create job --from=cronjob/<cronjob-name> <job-name>
+```

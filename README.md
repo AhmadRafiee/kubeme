@@ -17,6 +17,8 @@ The tools and sample needed to learn the Kubernetes
   - [kubernetes sample nginx](scenario/nginx-test)
   - [kubernetes ingress treeafik](scenario/ingress-traefik)
   - [kubernetes ingress nginx](scenario/ingress.md)
+  - [kubernetes logging loki](scenario/loki.md)
+  - [kubernetes monitoring prometheus](scenario/prometheus.md)
   - [kubernetes and ceph-csi ](storage/ceph-csi.md)
   - [kubernetes and bb-csi](storage/block-bridge-csi.md)
   - [kubernetes weavescope deploy](scenario/weavescope.md)
@@ -32,18 +34,11 @@ The tools and sample needed to learn the Kubernetes
         - build packer image
     - kind
 
-- Deploy: 
-    - LB-ingress
-
 - Tests:
     - statefulset test 
 
 - Deployment on kube:
-    - ceph-csi 
     - velero
-    - kubernetes-metrics
-    - monitoring prometheus
-    - logging loki | efk 
     - wordperss
     - private-registry harbor | jfrog
 

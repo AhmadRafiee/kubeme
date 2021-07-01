@@ -19,12 +19,14 @@ The tools and sample needed to learn the Kubernetes
   - [kubernetes ingress nginx](scenario/ingress.md)
   - [kubernetes logging loki](scenario/loki.md)
   - [kubernetes monitoring prometheus](scenario/prometheus.md)
+  - [kubernetes grafana dashboard](scenario/grafana-dashboard)
   - [kubernetes install helm](scenario/install-helm.md)
   - [kubernetes and ceph-csi ](storage/ceph-csi.md)
   - [kubernetes and bb-csi](storage/block-bridge-csi.md)
   - [kubernetes weavescope deploy](scenario/weavescope.md)
   - [kubernetes roolout](scenario/rollout-test.md)
   - [kubernetes deployment strtategy](scenario/deployment-strategy.md)
+  - [kubernetes wordperss scenario](scenario/wordpress.md)
   - [docker elk scenario](scenario/docker/elk-single-node/)
   - [etcd backup | restore](scenario/back-restore-etcd.md)
   
@@ -40,9 +42,4 @@ The tools and sample needed to learn the Kubernetes
 
 - Deployment on kube:
     - velero
-    - wordperss
     - private-registry harbor | jfrog
-
-- hold packages
-    - docker 
-    - kube app

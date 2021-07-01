@@ -1,10 +1,10 @@
 # [Deploying WordPress and MySQL with Persistent Volumes](https://kubernetes.io/docs/tutorials/stateful-application/mysql-wordpress-persistent-volume/)
 
-### This tutorial shows you how to deploy a WordPress site and a MySQL database using Minikube. Both applications use PersistentVolumes and PersistentVolumeClaims to store data.
+#### This tutorial shows you how to deploy a WordPress site and a MySQL database using Minikube. Both applications use PersistentVolumes and PersistentVolumeClaims to store data.
 
-### A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. A PersistentVolumeClaim (PVC) is a request for storage by a user that can be fulfilled by a PV. PersistentVolumes and PersistentVolumeClaims are independent from Pod lifecycles and preserve data through restarting, rescheduling, and even deleting Pods.
+#### A PersistentVolume (PV) is a piece of storage in the cluster that has been manually provisioned by an administrator, or dynamically provisioned by Kubernetes using a StorageClass. A PersistentVolumeClaim (PVC) is a request for storage by a user that can be fulfilled by a PV. PersistentVolumes and PersistentVolumeClaims are independent from Pod lifecycles and preserve data through restarting, rescheduling, and even deleting Pods.
 
-## The following manifest describes a single-instance MySQL Deployment. The MySQL container mounts the PersistentVolume at /var/lib/mysql. The MYSQL_ROOT_PASSWORD environment variable sets the database password from the Secret.
+- The following manifest describes a single-instance MySQL Deployment. The MySQL container mounts the PersistentVolume at /var/lib/mysql. The MYSQL_ROOT_PASSWORD environment variable sets the database password from the Secret.
 ```bash
 apiVersion: v1
 kind: Secret
@@ -79,7 +79,7 @@ spec:
         persistentVolumeClaim:
           claimName: mysql-pv-claim
 ```
-## The following manifest describes a single-instance WordPress Deployment. The WordPress container mounts the PersistentVolume at /var/www/html for website data files. The WORDPRESS_DB_HOST environment variable sets the name of the MySQL Service defined above, and WordPress will access the database by Service. The WORDPRESS_DB_PASSWORD environment variable sets the database password from the Secret kustomize generated.
+- The following manifest describes a single-instance WordPress Deployment. The WordPress container mounts the PersistentVolume at /var/www/html for website data files. The WORDPRESS_DB_HOST environment variable sets the name of the MySQL Service defined above, and WordPress will access the database by Service. The WORDPRESS_DB_PASSWORD environment variable sets the database password from the Secret kustomize generated.
 
 ```bash
 apiVersion: v1
@@ -150,42 +150,42 @@ spec:
         persistentVolumeClaim:
           claimName: wp-pv-claim
 ```
-### Verify that the Secret exists by running the following command:
+- Verify that the Secret exists by running the following command:
 ```bash
 kubectl get secrets
 ```
-### Verify that a PersistentVolume got dynamically provisioned.
+- Verify that a PersistentVolume got dynamically provisioned.
 ```bash
 kubectl get pvc
 ```
-### Verify that the Pod is running by running the following command:
+- Verify that the Pod is running by running the following command:
 ```bash
 kubectl get pods
 ```
-### Verify that the Service is running by running the following command:
+- Verify that the Service is running by running the following command:
 ```bash
 kubectl get services wordpress
 ```
-### create wordpress ingress file
+- create wordpress ingress file
 ```bash
 apiVersion: networking.k8s.io/v1beta1
 kind: Ingress
 metadata:
   annotations:
     kubernetes.io/ingress.class: nginx
-  name: loki
-  namespace: loki-stack
+  name: wordpress
+  namespace: default
 spec:
   rules:
-  - host: loki.monlog.ir
+  - host: mysite.monlog.ir
     http:
       paths:
       - backend:
-          serviceName: loki-grafana
+          serviceName: wordpress
           servicePort: 80
         path: /
 ```
-### Verify that a Ingress object.
+- Verify that a Ingress object.
 ```bash
 kubectl get ingress
 ```
